@@ -22,10 +22,10 @@ class Podcast(models.Model):
     title = models.CharField(max_length=64)
     raw_audio = models.FileField(upload_to=build_filename(
         os.path.join(settings.MEDIA_ROOT, RAW_AUDIO), suffix='raw'
-    ))
+    ), blank=True, null=True)
     final_audio = models.FileField(upload_to=build_filename(
         os.path.join(settings.MEDIA_ROOT, FINAL_AUDIO)
-    ))
+    ), blank=True, null=True)
     description = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
     blurb = models.TextField(max_length=64)
